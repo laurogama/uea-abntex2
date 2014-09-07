@@ -74,7 +74,7 @@
 % Pacotes de citações
 % ---
 \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage[num]{abntex2cite}	% Citações padrão ABNT
 \usepackage{tocloft}
 \usepackage{parskip}
 
@@ -102,7 +102,7 @@
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-\titulo{SISTEMAS DE PROTEÇÃO CONTRA DESCARGAS ATMOSFÉRICAS}
+\titulo{MONITORAMENTO DE DESCARGAS ELETROESTÁTICAS EM LINHAS DE PRODUÇÃO DE ELETRÔNICOS}
 \autor{LAURO MANOEL LIMA DA GAMA}
 \local{Manaus}
 \data{2014}
@@ -134,7 +134,7 @@ Escola Superior de Tecnologia.}
 		pdfauthor={\@author},
     	pdfsubject={\imprimirpreambulo},
 	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={spda}{efeito corona}{descargas eletricas}, 
+		pdfkeywords={spda}{efeito corona}{descargas elétricas}, 
 		colorlinks=false,       		% false: boxed links; true: colored links
    		linkcolor=black,          	% color of internal links
     	citecolor=blue,        		% color of links to bibliography
@@ -213,11 +213,13 @@ Escola Superior de Tecnologia.}
 % ---
 % inserir lista de abreviaturas e siglas
 % ---
-%\begin{siglas}
-%  \item[ABNT] Associação Brasileira de Normas Técnicas
-%  \item[abnTeX] ABsurdas Normas para TeX
-%\end{siglas}
-% ---
+\begin{siglas}
+  \item[ESD] \textit{Electrostatic Discharge}
+  \item[ESDA] \textit{Electrostatic Discharge Association}
+  \item[EST] Escola Superior de Tecnologia
+  \item[UEA] Universidade do Estado do Amazonas 
+\end{siglas}
+ ---
 
 % ---
 % inserir lista de símbolos
@@ -252,8 +254,14 @@ Escola Superior de Tecnologia.}
 
 \chapter*{\vspace*{3.4cm}INTRODUÇÃO}
 \addcontentsline{toc}{section}{INTRODUÇÃO}
+A prevenção de descargas eletroestáticas é uma preocupação constante durante a produção de equipamentos eletrônicos. Tais cargas são responsáveis por falhas e danos aos produtos produzidos e representam prejuízos econômicos consideráveis.
 
-Conteudo da Introducao..
+A forma mais eficiente de proteger produtos desse problema é a prevenção de sua ocorrência. Tal prevenção ocorre pelo monitoramento constante de acumulo de cargas geradoras de descargas e a neutralização do agente gerador.
+
+
+Neste trabalho é apresentado um estudo sobre a prevenção de descargas eletroestáticas em linhas de produção de eletrônicos.
+
+
 % ----------------------------------------------------------
 % Capitulo de textual  
 % ----------------------------------------------------------
@@ -262,54 +270,68 @@ Conteudo da Introducao..
 
 \vspace{24pt}
 \section{TEMA}
-Efeitos 
-
+DESCARGAS ELÉTRICAS
+\section{DELIMITAÇÃO DO TEMA}
+Monitoramento de descargas eletroestáticas em linhas de produção de eletrônicos.
 \section{FORMULAÇÃO DO PROBLEMA}
-
+A carência de um sistema que monitore cargas eletroestáticas durante o processo de produção afim de evitar descargas eletroestáticas que possam danificar componentes eletrônicos.  
 \section{HIPÓTESE}
-
+É possível a criação de um equipamento que meça a quantidade de cargas estáticas em pessoas e equipamentos envolvidos no processo de manufatura de eletroeletrônicos e dissipe essas cargas afim de prevenir a ocorrência de descargas eletroestáticas utilizando módulos microcontroladores e transmissão via rede de radio \textit{wifi}. 
 \section{OBJETIVO}
+Estudar a arquitetura de um sistema que monitore as cargas estáticas em pessoas e equipamentos envolvidos no processo de manufatura de eletroeletrônicos.
 
+Projetar um protótipo do sistema que monitore postos de trabalho onde o controle de cargas eletroestáticas seja necessário, indicando quando o objeto sob analise está acumulando cargas estáticas e transmita essa informação via rede de dados \textit{wifi} a um servidor de dados que sinalize e armazene essas informações para posterior analise.
+
+Serão utilizados para o desenvolvimento do protótipo as instalações e recursos da Universidade do Estado do Amazonas (UEA) na Escola Superior de Tecnologia (EST)
 \section{JUSTIFICATIVA}
 
 \subsection{Justificativa Acadêmica}
-
+O estudo também permite o aprofundamento da pesquisa de monitoramento remoto, eletrônica e sistemas embarcados.
 \subsection{Justificativa Social}
-
+Sistemas de monitoramento podem ser utilizados nos mais diversos processos produtivos para assegurar normas de segurança e aumentar a eficiência da linha.
+A utilização desse sistema irá diminuir a incidência de descargas estáticas durante o processo de manufatura.
 \section{REFERENCIAL TEÓRICO}
 
-\subsection{DISTRIBUIÇÃO DE ENERGIA ELÉTRICA}
-\hspace*{0.8cm}O módulo 8 dos Procedimentos de Distribuição de Energia Elétrica
-do Sistema Elétrico Nacional, PRODIST, obriga as concessionárias a medir e
-controlar parâmetros referentes à qualidade da energia elétrica \cite{PRODIST}.
-Desta forma, alguns dos diversos parâmetros de qualidade de energia que devem
-ser mensurados são o nível de tensão, que deve ser mantido entre um máximo e um
-mínimo e a continuidadeade do serviço, através dos parâmetros DEC (Duração
-Equivalente por Consumidor) e FEC (Frequência Equivalente de Interrupção),
-respectivamente. Entretanto, outros dois parâmetros são alvo de avaliação e
-controle no sistema de distribuição: Forma de Onda e Simetria do Sinal, sendo
-representados pelo indicador Taxa de Distorção Harmônica ou THD (\textit{Total
-Harmonic Distortion}) dos sinais de tensão e corrente.
+\subsection{DESCARGA ELETROESTÁTICA}
+A descarga eletrostática (ESD, do inglês \textit{electrostatic
+discharge}) é um fenômeno natural que pode ser definido como "a rápida e espontânea transferência de carga entre dois corpos em diferentes potenciais elétricos".\cite{esda}
 
-\subsection{A INFLUÊNCIA DE HARMÔNICOS}
+A descarga eletrostática pode pode causar grandes danos a equipamentos eletrônicos \cite{Katsivelis2010} e segundo \citeauthor{Hwang2005}, um terço das falhas em campo de circuitos integrados são decorrentes de ESD e outras falhas conhecidas como sobrecargas elétricas.
 
-\subsection{MEDIÇÃO DE HARMÔNICOS}
+Existem 3 principais processos de geração de cargas eletrostáticas:
+\subsubsection{carregamento triboelétrico}
+Causado pela fricção de diferentes materiais e é o método mais usual de geração de cargas eletroestáticas.
 
-\subsection{MICROCONTROLADORES ARM}
+O carregamento triboelétrico é causado por um principio de contato e separação dos materiais. Quando dois materiais com propriedades triboelétricas diferentes são colocados em contato e separados, elétrons carregados negativamente são transferidos da superfície de um material para o outro. O material que sofre perda e o que ganha elétrons é definido por suas propriedades triboelétricas\cite{Hwang2005}. 
 
-\subsection{SISTEMA OPERACIONAL LINUX EMBARCADO}
+\subsubsection{indução}
+O processo de indução ocorre quando um objeto condutor mas sem cargas é colocado próximo a um objeto com cargas eletroestáticas. Ao afastar os objetos aquele que não possuía cargas passa a possuir uma carga resultante da somatória algébrica das cargas. A nova carga possui polaridade oposta a do objeto que foi aproximado.
+\subsubsection{condução} 
+A condução ocorre quando há contato entre objetos com diferentes potenciais de tensão. Ao entrarem em contato os objetos irão se balancear eletricamente resultando em objetos com cargas com polaridades iguais.
 
+\subsection{DANOS PROVOCADOS POR DESCARGAS ELETROESTÁTICAS}
+As descargas eletroestáticas podem causar riscos tanto as pessoas quanto a bens e equipamentos.
+Em industrias que lidam com substancias inflamáveis as descargas eletroestáticas podem gerar faíscas e inflamar misturas explosivas. \cite{kassebaum}
+
+De acordo com \citeauthor{Hwang2005}, 58\% das falhas de circuitos integrados baseados em silício e 27\% dos baseados em Gálio-arsênico são decorrentes de ESD e sobrecargas elétricas.
+
+\subsection{MEDIÇÃO DE CARGAS ELETROESTÁTICAS}
+A medição de cargas eletroestáticas pode ser feita através de medidores de tensão que medem a carga em um componente de um componente ou medindo sua curva de descarga.\cite{Berndt2010}
+
+Não existem níveis de aceitação padrão, sendo estes dependentes de cada componente a ser testado.  
 \section{METODOLOGIA}
 
-\hspace*{0.8cm}Serão feitas pesquisas bibliográficas na área de sistemas microprocessados de alto desempenho, com foco na arquitetura ARM com sistema operacional Linux embarcado, bem como também programação orientada a objeto, com foco na linguagem C++ e programação orientada a blocos, com base na ferramenta de desenvolvimento Labview, um ambiente de desenvolvimento da National Instruments que auxilia na confecção de interfaces gráficas. Também serão feitas pesquisas bibliográficas a respeito de métodos numéricos e algoritmos de cálculo da transformada rápida de Fourier. Serão, por fim, feitas pesquisas sobre circuitos de condicionamento, aplicados na leitura de sinais da rede elétrica, bem como de circuitos integrados medidores de energia, que serão utilizados para a amostragem dos sinais da rede a ser medida.
+\hspace*{0.8cm}Serão feitas pesquisas bibliográficas na área de sistemas microprocessados, com foco na arquitetura Arduino, com foco na linguagem C e programação orientada a objetos com foco na linguagem Python\cite{python} que auxilia a criação do servidor de dados e interface web necessária a visualização dos dados. Serão, por fim, feitas pesquisas sobre circuitos de medição de tensão elétrica, aplicados na leitura de sinais dos objetos a serem testados.
 
-Pesquisas de campo serão aplicadas para coletar dados de redes de distribuição de energia elétrica, serão feitas, também, simulações computacionais e reais nas quais se buscará avaliar a confiabilidade dos algoritmos testados, bem como determinar o mais adequado às limitações inerentes à plataforma de trabalho disponível.
+Pesquisas de campo serão aplicadas para coletar dados reais em linhas de produção, serão feitas, também, simulações computacionais e reais nas quais se buscará avaliar a confiabilidade dos algoritmos testados, bem como determinar o mais adequado às limitações inerentes à plataforma de trabalho disponível.
 
-A construção do Sistema será dividida em duas etapas: A primeira etapa será a implementação dos algoritmos de cálculo de FFT, no Matlab, e comparação do desempenho e resposta dos mesmos com relação a blocos já prontos e disponíveis no referido software de simulação. Este método servirá como base de teste para a escolha do algoritmo de cálculo mais eficiente, em termos de processamento e exatidão.
+A construção do sistema será dividida em três etapas: A primeira etapa será a implementação dos algoritmos de cálculo de medição de cargas eletroestáticas em \textit{Python} utilizando o pacote \textit{Numpy} de analise matemática.\cite{numpy}
 
-A segunda etapa será a implementação de um protótipo utilizando do chip ADE7758, um circuito integrado medidor de energia e parâmetros elétricos trifásicos, para a aquisição das formas de onda de tensão e corrente, de tal modo que se possa implementar o algoritmo de cálculo de melhor desempenho em linguagem C++ em uma plataforma com sistema operacional Linux embarcado e comparar sua resposta com medidores comerciais utilizando uma interface de aquisição desenvolvida com o auxílio do software Labview.
+A segunda etapa será a implementação de um protótipo utilizando o modulo arduino Uno como base para o esquema eletrônico. O algorítimo de medição desenvolvido na etapa um será transcrito para a linguagem C e embarcado no modulo de medição.  \cite{arduino}
 
-Os resultados obtidos, bem como o algoritmo escolhido, ao final do projeto de pesquisa poderão ser incorporados a uma plataforma comercial de análise de rede elétrica utilizada no gerenciamento de transformadores de distribuição de energia elétrica, uma vez que os referidos recursos encontrem-se suficientemente testados em termos de eficiência e confiabilidade.
+A terceira etapa sera o desenvolvimento de um programa servidor de dados em linguagem Python utilizando os pacotes Django\cite{django} e \textit{Cherry Py}\cite{cherrypy}.
+
+Após a construção do sistema ele será testado em ambientes laboratoriais e apos essa etapa de testes e subsequente correções, serão feitos testes de campo em uma linha de produção.
 
 
 \newpage
@@ -325,22 +347,21 @@ As atividades de desenvolvimento do projeto seguirão o seguinte cronograma:
 \textbf{Item} & \textbf{Atividade} & \textbf{Abr} & \textbf{Mai} & \textbf{Jun} & \textbf{Jul} & \textbf{Ago} & \textbf{Set} & \textbf{Out} & \textbf{Nov} & \textbf{Dez} \\\hline \hline
 1 & Escolha do Professor Orientador & X & & & & & & & & \\\hline
 2 & Definição do Tema & & X & & & & & & & \\\hline
-3 & Estudo sobre equipamentos de medição & & X & X & & & & & & \\\hline
+3 & Estudo sobre medição de tensão em componentes eletrônicos & & X & X & & & & & & \\\hline
 4 & Coleta de Informações do projeto de pesquisa & & X & X & & & & & & \\\hline
 5 & Tratamento das Informações coletadas & & & X & & & & & & \\\hline
 6 & Elaboração do projeto de pesquisa & & & X & X & & & & & \\\hline
 7 & Revisão do Texto do Projeto de Pesquisa & & & & X & & & & & \\\hline
 8 & Elaboração da Apresentação & & & & X & & & & & \\\hline
 9 & Apresentação do Projeto de Pesquisa & & & & X & & & & & \\\hline
-10 & Escolha plataforma ARM & & & & & X & & & & \\\hline
-11 & Análise de Dados de uma Rede Elétrica & & & & & X & X & & & \\\hline
-12 & Comparação de Resultados de Cálculo & & & & & & X & & & \\\hline
-13 & Elaboração textual da Pesquisa & & & & & & X & X & & \\\hline
-14 & Revisão textual da pesquisa & & & & & & & X & & \\\hline
-15 & Correções Textuais & & & & & & & & X & \\\hline
-16 & Entrega da versão final da Pesquisa & & & & & & & & & X \\\hline
-17 & Elaboração da Apresentação & & & & & & & & & X \\\hline
-18 & Apresentação da Pesquisa & & & & & & & & & X \\\hline
+10 & Estudo de circuitos de transmissão de dados & & & & & X & & & & \\\hline
+11 & Desenvolvimento do protótipo & & & & & X & & & & \\\hline
+12 & Elaboração textual da Pesquisa & & & & & & X & X & & \\\hline
+13 & Revisão textual da pesquisa & & & & & & & X & & \\\hline
+14 & Correções Textuais & & & & & & & & X & \\\hline
+15 & Entrega da versão final da Pesquisa & & & & & & & & & X \\\hline
+16 & Elaboração da Apresentação & & & & & & & & & X \\\hline
+17 & Apresentação da Pesquisa & & & & & & & & & X \\\hline
 
 \end{tabular}
 \end{table}
@@ -353,9 +374,11 @@ As atividades de desenvolvimento do projeto seguirão o seguinte cronograma:
 % Uncomment the following two lines if you want to have a bibliography. Please do not forget to add an entry to your bibliography and reference it by using the \cite{} command
 \newpage
 \vspace*{2.3cm}
+%\section{REFERÊNCIAS}
 \renewcommand{\bibname}{REFERÊNCIAS}
-%\addcontentsline{toc}{section}{REFERÊNCIAS}
-\bibliography{abntex2-modelo-references}
+\addcontentsline{toc}{section}{REFERÊNCIAS}
+\bibliography{references}
+
 
 % ----------------------------------------------------------
 % Glossário
