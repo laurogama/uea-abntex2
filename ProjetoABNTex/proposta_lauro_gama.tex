@@ -256,10 +256,12 @@ Escola Superior de Tecnologia.}
 \addcontentsline{toc}{section}{INTRODUÇÃO}
 A prevenção de descargas eletroestáticas é uma preocupação constante durante a produção de equipamentos eletrônicos. Tais cargas são responsáveis por falhas e danos aos produtos produzidos e representam prejuízos econômicos consideráveis.
 
+Essas falhas são originadas da degradação ou dano a barreiras dielétricas dos componentes eletrônicos por descargas acima do especificado para uso no componente.
+
 A forma mais eficiente de proteger produtos desse problema é a prevenção de sua ocorrência. Tal prevenção ocorre pelo monitoramento constante de acumulo de cargas geradoras de descargas e a neutralização do agente gerador.
+Esse monitoramento pode ser realizado pela constante medição de cargas em diversos pontos e o envio do resultado dessas medições para um sistema computacional que fará a analise e sinalização desses resultados. 
 
-
-Neste trabalho é apresentado um estudo sobre a prevenção de descargas eletroestáticas em linhas de produção de eletrônicos.
+O presente projeto tem como objetivo o desenvolvimento de um sistema de monitoramento de descargas eletroestáticas em linhas de produção de eletrônicos através da medição de cargas eletroestáticas em pessoas e objetos.
 
 
 % ----------------------------------------------------------
@@ -286,10 +288,10 @@ Serão utilizados para o desenvolvimento do protótipo as instalações e recurs
 \section{JUSTIFICATIVA}
 
 \subsection{Justificativa Acadêmica}
-O estudo também permite o aprofundamento da pesquisa de monitoramento remoto, eletrônica e sistemas embarcados.
+O estudo do monitoramento de cargas eletroestáticas permite o aprofundamento da pesquisa de monitoramento remoto, eletrônica e sistemas embarcados.
 \subsection{Justificativa Social}
 Sistemas de monitoramento podem ser utilizados nos mais diversos processos produtivos para assegurar normas de segurança e aumentar a eficiência da linha.
-A utilização desse sistema irá diminuir a incidência de descargas estáticas durante o processo de manufatura.
+A utilização desse sistema irá diminuir a incidência de descargas eletroestáticas durante o processo de manufatura diminuindo perdas econômicas e logísticas.
 \section{REFERENCIAL TEÓRICO}
 
 \subsection{DESCARGA ELETROESTÁTICA}
@@ -314,6 +316,10 @@ As descargas eletroestáticas podem causar riscos tanto as pessoas quanto a bens
 Em industrias que lidam com substancias inflamáveis as descargas eletroestáticas podem gerar faíscas e inflamar misturas explosivas. \cite{kassebaum}
 
 De acordo com \citeauthor{Hwang2005}, 58\% das falhas de circuitos integrados baseados em silício e 27\% dos baseados em Gálio-arsênico são decorrentes de ESD e sobrecargas elétricas.
+
+É estimado que as perdas da industria de eletrônicos com descargas eletroestáticas seja de bilhões anualmente. \cite{Hwang2005}
+
+Os custos podem variar de alguns centavos para centenas de reais por componente.
 
 \subsection{MEDIÇÃO DE CARGAS ELETROESTÁTICAS}
 A medição de cargas eletroestáticas pode ser feita através de medidores de tensão que medem a carga em um componente de um componente ou medindo sua curva de descarga.\cite{Berndt2010}
@@ -376,7 +382,6 @@ As atividades de desenvolvimento do projeto seguirão o seguinte cronograma:
 \vspace*{2.3cm}
 %\section{REFERÊNCIAS}
 \renewcommand{\bibname}{REFERÊNCIAS}
-\addcontentsline{toc}{section}{REFERÊNCIAS}
 \bibliography{references}
 
 
