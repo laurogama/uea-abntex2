@@ -62,6 +62,15 @@
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{calc}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{ifthen}
+\usepackage{lscape}
+\usepackage[table]{xcolor}
+\def\inputGnumericTable{}
 % ---
 
 % ---
@@ -134,7 +143,7 @@ Escola Superior de Tecnologia.}
 		pdfauthor={\@author},
     	pdfsubject={\imprimirpreambulo},
 	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={spda}{efeito corona}{descargas elétricas}, 
+		pdfkeywords={esd}{cargas eletroestáticas}{descargas eletroestáticas}, 
 		colorlinks=false,       		% false: boxed links; true: colored links
    		linkcolor=black,          	% color of internal links
     	citecolor=blue,        		% color of links to bibliography
@@ -231,25 +240,25 @@ Escola Superior de Tecnologia.}
 %  \item[$ \in $] Pertence
 %\end{simbolos}
 % ---
-
 % ---
 % inserir o sumario
 % ---
 %\pdfbookmark[0]{\contentsname}{toc}
+\renewcommand{\contentsname}{\vspace*{3.4cm}SUMÁRIO}
 \tableofcontents*
 %\cleardoublepage
 % ---
 
-
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS
 % ----------------------------------------------------------
-\pagestyle{simple}
 
 % ----------------------------------------------------------
 % Introdução
 % ----------------------------------------------------------
 \textual
+\pagestyle{simple}
+
 \newpage
 
 \chapter*{\vspace*{3.4cm}INTRODUÇÃO}
@@ -284,7 +293,7 @@ Estudar a arquitetura de um sistema que monitore as cargas estáticas em pessoas
 
 Projetar um protótipo do sistema que monitore postos de trabalho onde o controle de cargas eletroestáticas seja necessário, indicando quando o objeto sob analise está acumulando cargas estáticas e transmita essa informação via rede de dados \textit{wifi} a um servidor de dados que sinalize e armazene essas informações para posterior analise.
 
-Serão utilizados para o desenvolvimento do protótipo as instalações e recursos da Universidade do Estado do Amazonas (UEA) na Escola Superior de Tecnologia (EST)
+Serão utilizados para o desenvolvimento do protótipo as instalações e recursos próprios do pesquisador.
 \section{JUSTIFICATIVA}
 
 \subsection{Justificativa Acadêmica}
@@ -345,34 +354,13 @@ Após a construção do sistema ele será testado em ambientes laboratoriais e a
 \section{CRONOGRAMA}
 
 As atividades de desenvolvimento do projeto seguirão o seguinte cronograma:
-%\newpage
-\begin{table}[h]\centering
-\caption{Cronograma de atividades}
-\begin{tabular}{|c|p{4cm}|c|c|c|c|c|c|c|c|r|}
-\hline
-\textbf{Item} & \textbf{Atividade} & \textbf{Abr} & \textbf{Mai} & \textbf{Jun} & \textbf{Jul} & \textbf{Ago} & \textbf{Set} & \textbf{Out} & \textbf{Nov} & \textbf{Dez} \\\hline \hline
-1 & Escolha do Professor Orientador & X & & & & & & & & \\\hline
-2 & Definição do Tema & & X & & & & & & & \\\hline
-3 & Estudo sobre medição de tensão em componentes eletrônicos & & X & X & & & & & & \\\hline
-4 & Coleta de Informações do projeto de pesquisa & & X & X & & & & & & \\\hline
-5 & Tratamento das Informações coletadas & & & X & & & & & & \\\hline
-6 & Elaboração do projeto de pesquisa & & & X & X & & & & & \\\hline
-7 & Revisão do Texto do Projeto de Pesquisa & & & & X & & & & & \\\hline
-8 & Elaboração da Apresentação & & & & X & & & & & \\\hline
-9 & Apresentação do Projeto de Pesquisa & & & & X & & & & & \\\hline
-10 & Estudo de circuitos de transmissão de dados & & & & & X & & & & \\\hline
-11 & Desenvolvimento do protótipo & & & & & X & & & & \\\hline
-12 & Elaboração textual da Pesquisa & & & & & & X & X & & \\\hline
-13 & Revisão textual da pesquisa & & & & & & & X & & \\\hline
-14 & Correções Textuais & & & & & & & & X & \\\hline
-15 & Entrega da versão final da Pesquisa & & & & & & & & & X \\\hline
-16 & Elaboração da Apresentação & & & & & & & & & X \\\hline
-17 & Apresentação da Pesquisa & & & & & & & & & X \\\hline
+\newpage
 
-\end{tabular}
-\end{table}
+\begin{landscape}
 
-%
+\input{CodigoCronograma.tex}
+
+\end{landscape}
 
 % ----------------------------------------------------------
 % Referências bibliográficas
